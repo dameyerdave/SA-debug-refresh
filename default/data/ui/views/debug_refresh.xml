@@ -98,7 +98,7 @@
   </fieldset>
   <row>
     <panel depends="$entity$">
-      <title>Refresh $entity$, status</title>
+      <title>Status of refreshing entity: $entity$</title>
       <single>
         <search>
           <query>| refresh entity=$entity$ | where endpoint="/servicesNS/-/-/admin/$entity$/_reload" | stats count</query>
