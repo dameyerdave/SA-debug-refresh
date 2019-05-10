@@ -1,0 +1,123 @@
+<form>
+  <label>Debug Refresh</label>
+  <description>Refresh entities</description>
+  <fieldset submitButton="true">
+    <input type="dropdown" token="entity" searchWhenChanged="false">
+      <label>Entity</label>
+      <choice value="conf-times">conf-times</choice>
+      <choice value="alert_actions">alert_actions</choice>
+      <choice value="applicense">applicense</choice>
+      <choice value="clusterconfig">clusterconfig</choice>
+      <choice value="collections-conf">collections-conf</choice>
+      <choice value="commandsconf">commandsconf</choice>
+      <choice value="conf-checklist">conf-checklist</choice>
+      <choice value="conf-deploymentclient">conf-deploymentclient</choice>
+      <choice value="conf-inputs">conf-inputs</choice>
+      <choice value="conf-wmi">conf-wmi</choice>
+      <choice value="cooked">cooked</choice>
+      <choice value="crl">crl</choice>
+      <choice value="datamodel-files">datamodel-files</choice>
+      <choice value="datamodelacceleration">datamodelacceleration</choice>
+      <choice value="datamodeledit">datamodeledit</choice>
+      <choice value="dataset_consolidation_datamodeledit">dataset_consolidation_datamodeledit</choice>
+      <choice value="deploymentserver">deploymentserver</choice>
+      <choice value="distsearch-peer">distsearch-peer</choice>
+      <choice value="eventtypes">eventtypes</choice>
+      <choice value="fields">fields</choice>
+      <choice value="fifo">fifo</choice>
+      <choice value="fvtags">fvtags</choice>
+      <choice value="health-report-config">health-report-config</choice>
+      <choice value="http">http</choice>
+      <choice value="index-archiver">index-archiver</choice>
+      <choice value="indexer-discovery-config">indexer-discovery-config</choice>
+      <choice value="indexes">indexes</choice>
+      <choice value="limits">limits</choice>
+      <choice value="livetail">livetail</choice>
+      <choice value="localapps">localapps</choice>
+      <choice value="lookup-table-files">lookup-table-files</choice>
+      <choice value="macros">macros</choice>
+      <choice value="manager">manager</choice>
+      <choice value="messages-conf">messages-conf</choice>
+      <choice value="metric-schema">metric-schema</choice>
+      <choice value="metric-schema-reload">metric-schema-reload</choice>
+      <choice value="metrics-reload">metrics-reload</choice>
+      <choice value="modalerts">modalerts</choice>
+      <choice value="monitor">monitor</choice>
+      <choice value="msftapps_winfra_configured">msftapps_winfra_configured</choice>
+      <choice value="nav">nav</choice>
+      <choice value="panels">panels</choice>
+      <choice value="passwords">passwords</choice>
+      <choice value="pools">pools</choice>
+      <choice value="proxysettings">proxysettings</choice>
+      <choice value="quickstart">quickstart</choice>
+      <choice value="raw">raw</choice>
+      <choice value="remote_eventlogs">remote_eventlogs</choice>
+      <choice value="remote_monitor">remote_monitor</choice>
+      <choice value="remote_perfmon">remote_perfmon</choice>
+      <choice value="remote_raw">remote_raw</choice>
+      <choice value="remote_script">remote_script</choice>
+      <choice value="remote_udp">remote_udp</choice>
+      <choice value="savedsearch">savedsearch</choice>
+      <choice value="scheduledviews">scheduledviews</choice>
+      <choice value="script">script</choice>
+      <choice value="search-head-bundles">search-head-bundles</choice>
+      <choice value="serverclasses">serverclasses</choice>
+      <choice value="shclusterconfig">shclusterconfig</choice>
+      <choice value="sourcetypes">sourcetypes</choice>
+      <choice value="splunktcptoken">splunktcptoken</choice>
+      <choice value="ssl">ssl</choice>
+      <choice value="syslog">syslog</choice>
+      <choice value="tcpout-default">tcpout-default</choice>
+      <choice value="tcpout-group">tcpout-group</choice>
+      <choice value="tcpout-server">tcpout-server</choice>
+      <choice value="telemetry">telemetry</choice>
+      <choice value="transforms-extract">transforms-extract</choice>
+      <choice value="transforms-lookup">transforms-lookup</choice>
+      <choice value="transforms-reload">transforms-reload</choice>
+      <choice value="transforms-statsd">transforms-statsd</choice>
+      <choice value="udp">udp</choice>
+      <choice value="ui-prefs">ui-prefs</choice>
+      <choice value="ui-tour">ui-tour</choice>
+      <choice value="views">views</choice>
+      <choice value="viewstates">viewstates</choice>
+      <choice value="visualizations">visualizations</choice>
+      <choice value="vix-indexes">vix-indexes</choice>
+      <choice value="vix-providers">vix-providers</choice>
+      <choice value="workflow-actions">workflow-actions</choice>
+      <choice value="all">all</choice>
+      <search>
+        <query/>
+      </search>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>Status</title>
+      <single>
+        <search>
+          <query>| refresh entity=$entity$ | where endpoint="/servicesNS/-/-/admin/$entity$/_reload" | stats count</query>
+          <earliest>0</earliest>
+          <latest></latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="colorMode">block</option>
+        <option name="drilldown">none</option>
+        <option name="numberPrecision">0</option>
+        <option name="rangeColors">["0xdc4e41","0x53a051"]</option>
+        <option name="rangeValues">[0]</option>
+        <option name="refresh.display">progressbar</option>
+        <option name="showSparkline">1</option>
+        <option name="showTrendIndicator">1</option>
+        <option name="trellis.enabled">0</option>
+        <option name="trellis.scales.shared">1</option>
+        <option name="trellis.size">medium</option>
+        <option name="trendColorInterpretation">standard</option>
+        <option name="trendDisplayMode">absolute</option>
+        <option name="unitPosition">after</option>
+        <option name="useColors">1</option>
+        <option name="useThousandSeparators">1</option>
+      </single>
+    </panel>
+  </row>
+</form>

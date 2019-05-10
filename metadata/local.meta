@@ -1,0 +1,6 @@
+[views/debug_refresh]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 7.2.4.2
+modtime = 1557478567.259543000
