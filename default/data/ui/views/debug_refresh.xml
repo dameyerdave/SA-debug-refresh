@@ -1,7 +1,13 @@
 <form>
   <label>Debug Refresh</label>
   <description>Refresh entities</description>
-  <fieldset submitButton="true">
+  <fieldset submitButton="false" autoRun="false">
+    <input type="link" token="entity" searchWhenChanged="true">
+      <label>Quick links</label>
+      <choice value="macros">macros</choice>
+      <choice value="views">views</choice>
+      <choice value="nav">nav</choice>
+    </input>
     <input type="dropdown" token="entity" searchWhenChanged="false">
       <label>Entity</label>
       <choice value="conf-times">conf-times</choice>
@@ -91,8 +97,8 @@
     </input>
   </fieldset>
   <row>
-    <panel>
-      <title>Status</title>
+    <panel depends="$entity$">
+      <title>Refresh $entity$, status</title>
       <single>
         <search>
           <query>| refresh entity=$entity$ | where endpoint="/servicesNS/-/-/admin/$entity$/_reload" | stats count</query>
