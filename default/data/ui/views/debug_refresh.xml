@@ -1,10 +1,10 @@
 <form script="extract_reload.js">
   <label>Debug Refresh</label>
   <description>Refresh entities</description>
-  <fieldset submitButton="true" autoRun="false">
+  <fieldset submitButton="false" autoRun="false">
     <input type="link" token="extract_reload" searchWhenChanged="true">
       <label>Props/Transofrms</label>
-      <choice value="doit">Refresh Props/Transofrms</choice>
+      <choice value="doit">Refresh Props/Transforms</choice>
     </input>
     <input type="link" token="entity" searchWhenChanged="true">
       <label>Quick links</label>
@@ -12,6 +12,7 @@
       <choice value="views">views</choice>
       <choice value="nav">nav</choice>
       <choice value="localapps">localapps</choice>
+      <choice value="savedsearches">savedsearches</choice>
     </input>
     <input type="dropdown" token="entity" searchWhenChanged="false">
       <label>Entity</label>
@@ -101,6 +102,14 @@
       </search>
     </input>
   </fieldset>
+  <row>
+    <panel>
+      <title>Links</title>
+      <html>
+      <a target="_blank" href="/_bump">Bump Web Cache</a>
+    </html>
+    </panel>
+  </row>
   <row>
     <panel depends="$entity$">
       <title>Status of refreshing entity: $entity$</title>
